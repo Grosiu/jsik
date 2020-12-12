@@ -9,7 +9,7 @@ function userChoice(userInput) {
 
     userInput = userInput.toLowerCase();
 
-    if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors') {
+    if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors' || userInput === 'bomb') {
         return userInput;
     } else if (userInput === '') {
         console.log("Jejku... No wpisz coś!");
@@ -23,11 +23,11 @@ function userChoice(userInput) {
 
 function computerChoice() {
     const randomAnswer = Math.floor(Math.random() * 3);
-    
-    if (randomAnswer === 0){
+
+    if (randomAnswer === 0) {
         return 'rock';
     }
-    else if (randomAnswer === 1){
+    else if (randomAnswer === 1) {
         return 'paper';
     }
     else {
@@ -43,7 +43,7 @@ function whoIsWinner(users, computers) {
         return `It's draw!`;
     }
 
-    if ( users === 'rock' ){
+    if (users === 'rock') {
         if (computers === 'scissors') {
             return `User won!`;
         } else {
@@ -55,7 +55,10 @@ function whoIsWinner(users, computers) {
         } else {
             return 'User won';
         }
-    } else {
+    } else if (users === 'bomb') {
+        return 'User won';
+    }
+    else {
         if (computers === 'scissors') {
             return 'Computer won!';
         } else {
@@ -63,7 +66,9 @@ function whoIsWinner(users, computers) {
         }
     }
 }
-function playGame(){
+
+
+function playGame() {
     const getUserChoice = userChoice(userInput);
     const getComputerChoice = computerChoice();
     console.log(`User picked ${getUserChoice}!`);
