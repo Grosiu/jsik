@@ -12,10 +12,10 @@ function userChoice(userInput) {
     if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors' || userInput === 'bomb') {
         return userInput;
     } else if (userInput === '') {
-        console.log("Jejku... No wpisz coś!");
+        return 'nope';
     }
     else {
-        console.log("Serio? Nie umiesz się w to bawić?");
+        return 'nope';
     }
 }
 
@@ -70,6 +70,10 @@ function whoIsWinner(users, computers) {
 
 function playGame() {
     const getUserChoice = userChoice(userInput);
+    if (getUserChoice === 'nope') {
+        console.log("Nie umiesz w to grać");
+        return;
+    }
     const getComputerChoice = computerChoice();
     console.log(`User picked ${getUserChoice}!`);
     console.log(`Computer picked ${getComputerChoice}!`);
